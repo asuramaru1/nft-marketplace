@@ -1,5 +1,5 @@
+require('dotenv').config();
 module.exports = {
-
   networks: {
     development: {
      host: process.env.TRUFFLE_DEV_HOST,
