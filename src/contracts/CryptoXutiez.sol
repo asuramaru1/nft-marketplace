@@ -1,14 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
+import './ERC721Connector.sol';
 
-contract CryptoXutie {
+contract CryptoXutie is ERC721Connector {
 
-    string public name;
-    string public symbol;
-
-    constructor() {
-        name = 'CryptoXutie';
-        symbol = 'CXUTIEZ';
-    }
-
+    constructor() ERC721Connector('CryptoXutie','CXUTIEZ')
+    {}
+    
 }
