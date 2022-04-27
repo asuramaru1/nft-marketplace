@@ -21,8 +21,24 @@ contract ERC721 {
         _;
     }
 
+    function balanceOf(address _owner) validAdress(_owner) public view returns(uint256) {
+        return _ownerTokensCount[_owner];
+    }
+
+    function ownerOf(uint256 _tokenId) external view returns(address) {
+        address tokenOwner = _tokenOwner[_tokenId];
+        require(tokenOwner != address(0), 'invalid token ID');
+        return tokenOwner;
+    }
+
+    function _exists(uint256 tokenId) internal view returns(bool){
+        address owner = _tokenOwner[tokenId];
+        return owner != address(0);
+    }
+
     function _mint(address to, uint256 tokenId)
         internal
+        virtual
         validAdress(to)
         validToken(tokenId)
     {
